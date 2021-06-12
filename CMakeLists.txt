@@ -13,3 +13,4 @@ if("${CMAKE_CXX_COMPILER_ID}" MATCHES "(GNU|Clang)")
 endif()
 
 add_subdirectory(clpr1)
+add_subdirectory(clpr2)

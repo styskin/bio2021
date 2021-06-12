@@ -1,1 +1,0 @@
-/usr/bin/c++ -std=c++11 CMakeFiles/clpr1.dir/marks.cpp.o -o clpr1 
