@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.2.1
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2016 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Jun 12 13:53:59 2021
+# Make data base, printed on Sat Jun 12 15:47:20 2021
 
 # Variables
 
@@ -36,22 +38,18 @@ SUPERVISOR_ADDR = localhost:22999
 @F = $(notdir $@)
 # makefile
 CURDIR := /workspace/bio2021
-# makefile (from 'Makefile', line 48)
+# makefile
 SHELL = /bin/sh
-# makefile (from 'Makefile', line 54)
-RM = /home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E rm -f
 # environment
 GITPOD_THEIA_PORT = 23000
 # environment
 GITPOD_ANALYTICS_WRITER = segment
 # environment
 GO_VERSION = 1.16.5
-# makefile (from 'Makefile', line 63)
-CMAKE_BINARY_DIR = /workspace/bio2021
 # environment
 MAVEN_HOME = /home/gitpod/.sdkman/candidates/maven/current
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST :=  Makefile
+# makefile
+MAKEFILE_LIST := 
 # environment
 GITPOD_WORKSPACE_CONTEXT_URL = https://github.com/styskin/bio2021
 # 'override' directive
@@ -62,8 +60,6 @@ VSCODE_VERBOSE_LOGGING = true
 THEIA_WORKSPACE_ROOT = /workspace/bio2021
 # environment
 INFOPATH = :/home/linuxbrew/.linuxbrew/share/info
-# makefile (from 'Makefile', line 35)
-MAKESILENT = -s
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # environment
@@ -93,7 +89,7 @@ SDKMAN_PLATFORM = linuxx64
 # environment
 VSCODE_LOG_STACK = true
 # environment
-VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-69376276-d30f-4c09-8566-4928c202d75f.sock
+VSCODE_IPC_HOOK_CLI = /tmp/vscode-ipc-c0b96c5e-ff97-40ed-9f7a-b489afd0e891.sock
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -130,8 +126,6 @@ THEIA_WEBVIEW_EXTERNAL_ENDPOINT = webview-{{hostname}}
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
-# makefile (from 'Makefile', line 57)
-EQUALS = =
 # environment
 GITPOD_CLI_APITOKEN = zqyyiAKk5V0KL2HPAu0ZX8dpFojKhu6V
 # automatic
@@ -167,11 +161,9 @@ MAKE_VERSION := 4.2.1
 # environment
 USER = gitpod
 # makefile
-.DEFAULT_GOAL := default_target
+.DEFAULT_GOAL := 
 # environment
 GITPOD_EXTERNAL_EXTENSIONS = []
-# makefile (from 'Makefile', line 60)
-CMAKE_SOURCE_DIR = /workspace/bio2021
 # environment
 GOROOT = /home/gitpod/go
 # environment
@@ -201,9 +193,9 @@ OLDPWD = /
 # environment
 GITPOD_HOST = https://gitpod.io
 # makefile
-MAKEFLAGS = pqrRs
+MAKEFLAGS = pqrR
 # environment
-MFLAGS = -pqrRs
+MFLAGS = -pqrR
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -240,8 +232,6 @@ LC_ALL = C
 GITPOD_WORKSPACE_CONTEXT = {"isFile":false,"path":"","title":"styskin/bio2021 ","revision":"","repository":{"cloneUrl":"https://github.com/styskin/bio2021.git","host":"github.com","name":"bio2021","owner":"styskin","private":false}}
 # environment
 JAVA_TOOL_OPTIONS = -Xmx1879m
-# makefile (from 'Makefile', line 51)
-CMAKE_COMMAND = /home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake
 # automatic
 ^F = $(notdir $^)
 # environment
@@ -275,174 +265,45 @@ VSCODE_EXTHOST_WILL_SEND_SOCKET = true
 # environment
 MY_RUBY_HOME = /home/gitpod/.rvm/rubies/ruby-2.7.3
 # variable set hash-table stats:
- 
-# Load=132/1024=13%, Rehash=0, Collisions=12/166=7%
+# Load=126/1024=12%, Rehash=0, Collisions=10/148=7%
 
 # Pattern-specific Variable Values
+ 
 
 # No pattern-specific variable values.
 
 # Directories
 
-# SCCS: could not be stat'd.
 # . (device 2064, inode 10485807): 12 files, no impossibilities.
-# RCS: could not be stat'd.
 
-# 12 files, no impossibilities in 3 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
-%: %,v
-
-%: RCS/%
-
-%: RCS/%,v
-
-%: SCCS/s.%
-
-%: s.%
-
-%.hpux_make_needs_suffix_list:
-
-# 6 implicit rules, 0 (0.0%) terminal.
+# No implicit rules.
 
 # Files
 
-cmake_force:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-edit_cache:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 80):
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-
-all: cmake_check_build_system
-#  Phony target (prerequisite of .PHONY).
+# Not a target:
+all:
 #  Command line target.
-#  Implicit rule search has not been done.
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
-#  recipe to execute (from 'Makefile', line 90):
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspace/bio2021/CMakeFiles /workspace/bio2021//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /workspace/bio2021/CMakeFiles 0
-
-.PHONY: default_target cmake_force rebuild_cache rebuild_cache/fast edit_cache edit_cache/fast all clean clean/fast preinstall preinstall/fast depend clpr1 clpr1/fast help cmake_check_build_system
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-preinstall/fast:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 111):
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
-
-.SUFFIXES: .hpux_make_needs_suffix_list
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2021-06-12 13:31:06.494264682
-#  File has been updated.
-#  Successfully updated.
-
-.NOTPARALLEL:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-clean/fast: clean
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-cmake_check_build_system:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := cmake_check_build_system
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := 
-# automatic
-# | := 
-# automatic
-# < := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/14=21%
-#  recipe to execute (from 'Makefile', line 152):
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+#  Failed to be updated.
 
-help:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 134):
-	@echo "The following are some of the valid targets for this Makefile:"
-	@echo "... all (the default if no target is provided)"
-	@echo "... clean"
-	@echo "... depend"
-	@echo "... edit_cache"
-	@echo "... rebuild_cache"
-	@echo "... clpr1"
-
-preinstall: all
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 106):
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
-
-.SILENT:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-depend:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 116):
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
-
-clpr1/fast:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 129):
-	$(MAKE) $(MAKESILENT) -f clpr1/CMakeFiles/clpr1.dir/build.make clpr1/CMakeFiles/clpr1.dir/build
+#  File has been updated.
+#  Failed to be updated.
 
 # Not a target:
 .DEFAULT:
@@ -450,69 +311,27 @@ clpr1/fast:
 #  Modification time never checked.
 #  File has not been updated.
 
-default_target: all
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-clean:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 97):
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
-
-rebuild_cache/fast: rebuild_cache
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-edit_cache/fast: edit_cache
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-
-clpr1: cmake_check_build_system
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
-#  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 124):
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clpr1
-
 # Not a target:
-.hpux_make_needs_suffix_list:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-rebuild_cache:
-#  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
+GNUmakefile:
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 70):
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+#  File has been updated.
+#  Failed to be updated.
 
 # files hash-table stats:
-# Load=23/1024=2%, Rehash=0, Collisions=3/77=4%
+# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 44 / storage = 480 B / avg = 10 B
-# current buf: size = 8162 B / used = 480 B / count = 44 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 20 / storage = 194 B / avg = 9 B
+# current buf: size = 8162 B / used = 194 B / count = 20 / avg = 9 B
 
-# strcache performance: lookups = 131 / hit rate = 66%
+# strcache performance: lookups = 23 / hit rate = 13%
 # hash-table stats:
-# Load=44/8192=1%, Rehash=0, Collisions=3/131=2%
-# Finished Make data base on Sat Jun 12 13:53:59 2021
+# Load=20/8192=0%, Rehash=0, Collisions=1/23=4%
+# Finished Make data base on Sat Jun 12 15:47:20 2021
 
  

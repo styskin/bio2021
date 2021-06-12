@@ -1,22 +1,6 @@
 make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/workspace/bio2021'
-/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -S/workspace/bio2021 -B/workspace/bio2021 --check-build-system CMakeFiles/Makefile.cmake 0
-/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E cmake_progress_start /workspace/bio2021/CMakeFiles /workspace/bio2021//CMakeFiles/progress.marks
-make -s -f CMakeFiles/Makefile2 all
-make[1]: Entering directory '/workspace/bio2021'
-make -s -f clpr1/CMakeFiles/clpr1.dir/build.make clpr1/CMakeFiles/clpr1.dir/depend
-make[2]: Entering directory '/workspace/bio2021'
-cd /workspace/bio2021 && /home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E cmake_depends "Unix Makefiles" /workspace/bio2021 /workspace/bio2021/clpr1 /workspace/bio2021 /workspace/bio2021/clpr1 /workspace/bio2021/clpr1/CMakeFiles/clpr1.dir/DependInfo.cmake --color=
-make[2]: Leaving directory '/workspace/bio2021'
-make -s -f clpr1/CMakeFiles/clpr1.dir/build.make clpr1/CMakeFiles/clpr1.dir/build
-make[2]: Entering directory '/workspace/bio2021'
-/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E cmake_echo_color --switch= --green --progress-dir=/workspace/bio2021/CMakeFiles --progress-num=1 "Building CXX object clpr1/CMakeFiles/clpr1.dir/marks.cpp.o"
-cd /workspace/bio2021/clpr1 && /usr/bin/c++   -std=c++11 -MD -MT clpr1/CMakeFiles/clpr1.dir/marks.cpp.o -MF CMakeFiles/clpr1.dir/marks.cpp.o.d -o CMakeFiles/clpr1.dir/marks.cpp.o -c /workspace/bio2021/clpr1/marks.cpp
-/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E cmake_echo_color --switch= --green --bold --progress-dir=/workspace/bio2021/CMakeFiles --progress-num=2 "Linking CXX executable clpr1"
-cd /workspace/bio2021/clpr1 && /home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E cmake_link_script CMakeFiles/clpr1.dir/link.txt --verbose=
-make[2]: Leaving directory '/workspace/bio2021'
-/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E cmake_echo_color --switch= --progress-dir=/workspace/bio2021/CMakeFiles --progress-num=1,2 "Built target clpr1"
-make[1]: Leaving directory '/workspace/bio2021'
-/home/linuxbrew/.linuxbrew/Cellar/cmake/3.20.2/bin/cmake -E cmake_progress_start /workspace/bio2021/CMakeFiles 0
 make: Leaving directory '/workspace/bio2021'
+ 
+make: *** No targets specified and no makefile found.  Stop.
  

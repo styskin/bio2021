@@ -14,3 +14,4 @@ endif()
 
 add_subdirectory(clpr1)
 add_subdirectory(clpr2)
+add_subdirectory(clpr3)
