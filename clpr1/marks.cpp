@@ -7,18 +7,15 @@ using namespace std;
 
 int main(void) {
     int t;
+    cin >> t;
     for (int i = 0; i < t; ++i) {
         int n, l;
         cin >> n >> l;
-
-
-
         vector<string> marks;
         map<string, int> code;
         for (int j = 0; j < n; ++j) {
             string s;
             cin >> s;
-            cerr << s << endl;
             marks.push_back(s);
         }
 
@@ -48,7 +45,6 @@ int main(void) {
             cout << answer[j];
         }
         cout << endl;
-        cerr << "HERE" << endl;
     }
     return 0;
 }
