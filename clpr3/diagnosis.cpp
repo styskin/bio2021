@@ -7,7 +7,7 @@
 
 using namespace std;
 
-const int CSIZE = 100;
+const int CSIZE = 10;
 
 typedef vector<int> vi;
 typedef vector<vi> vii;
@@ -48,7 +48,25 @@ int LCA(int a, int b) {
 int calc(vii& dis, vi& p) {
     int msum = 0;
     int md = 0;
-    for (int i = 0; i < dis.size(); ++i) {
+
+    // GET from candidates
+    set<int> cur_candidates;
+
+    for (auto q : p) {
+        int x = q;
+        int h = treeH[x];
+        int prev_size = cur_candidates.size();
+        // 10 - for task3, 100 for task7
+        while (h > 1 && (cur_candidates.size() - prev_size) < 10) {
+            cur_candidates.insert(candidates[x].begin(), candidates[x].end());
+            x = tree[x];
+            --h;
+        }
+    }
+    // cerr << "Cand size " << cur_candidates.size() << endl;
+
+    // for (int i = 0; i < dis.size(); ++i) {
+    for (auto i : cur_candidates) {
         vi& d = dis[i];
 
         int sum = 0;
@@ -118,7 +136,7 @@ int main(void) {
     }
 
     // PRECALC candidated
-    candidates.resize(M);
+    candidates.resize(N);
     queue<int> queue;
     for (int i = 0; i < M; ++i) {
         for (auto d : dis[i]) {
@@ -126,8 +144,13 @@ int main(void) {
             queue.push(d);
         }
     }
+    cerr << "HERE" << endl;
     while (queue.size()) {
-        int x = queue.pop();
+        int x = queue.front();
+        queue.pop();
+        if (x == 0) {
+            continue;
+        }
         int r = tree[x];
         if (r > 0 && candidates[r].size() < CSIZE) {
             candidates[r].insert(candidates[x].begin(), candidates[x].end());
@@ -136,9 +159,8 @@ int main(void) {
     }
     cerr << "HERR" << endl;
 
-
     for (int i = 0; i < Q; ++i) {
-        if (i % 1000 == 0)
+        if (i % 100 == 0)
             cerr << "P: " << i << endl;
         cout << (calc(dis, pat[i]) + 1 ) << endl;
     }
