@@ -18,10 +18,9 @@ int main(void) {
         for (int j = 0; j < n; ++j) {
             string s;
             cin >> s;
+            cerr << s << endl;
             marks.push_back(s);
         }
-
-        cerr << "=======" << endl;
 
         int ind = 0;
 
@@ -49,7 +48,7 @@ int main(void) {
             cout << answer[j];
         }
         cout << endl;
-
+        cerr << "HERE" << endl;
     }
     return 0;
 }
