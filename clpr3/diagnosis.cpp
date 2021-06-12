@@ -2,8 +2,12 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <set>
+#include <queue>
 
 using namespace std;
+
+const int CSIZE = 100;
 
 typedef vector<int> vi;
 typedef vector<vi> vii;
@@ -12,6 +16,8 @@ typedef vector<vi> vii;
 vector<int> tree;
 vector<int> treeH;
 vector<int> IC;
+
+vector<set<int> > candidates;
 
 int height(int i) {
     if (treeH[i] != -1) {
@@ -110,6 +116,26 @@ int main(void) {
             pat[i].push_back(y - 1); // ZERO BASED
         }
     }
+
+    // PRECALC candidated
+    candidates.resize(M);
+    queue<int> queue;
+    for (int i = 0; i < M; ++i) {
+        for (auto d : dis[i]) {
+            candidates[d].insert(i);
+            queue.push(d);
+        }
+    }
+    while (queue.size()) {
+        int x = queue.pop();
+        int r = tree[x];
+        if (r > 0 && candidates[r].size() < CSIZE) {
+            candidates[r].insert(candidates[x].begin(), candidates[x].end());
+            queue.push(r);
+        }
+    }
+    cerr << "HERR" << endl;
+
 
     for (int i = 0; i < Q; ++i) {
         if (i % 1000 == 0)
