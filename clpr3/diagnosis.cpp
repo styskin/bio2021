@@ -30,15 +30,20 @@ int height(int i) {
 int LCA(int a, int b) {
     int ha = treeH[a];
     int hb = treeH[b];
+    // while (a > 200000 && ha > hb) {
     while (ha > hb) {
         a = tree[a];
         --ha;
     }
+    // while (b > 200000 && hb > ha) {
     while (hb > ha) {
         b = tree[b];
         --hb;
     }
     while (a != b) {
+        // if (a <= 200000 && b <= 200000) {
+        //     return min(a, b);
+        // }
         a = tree[a];
         b = tree[b];
     }
@@ -46,30 +51,30 @@ int LCA(int a, int b) {
 }
 
 int calc(vii& dis, vi& p) {
-    int msum = 0;
+    long long msum = 0;
     int md = 0;
 
     // GET from candidates
-    set<int> cur_candidates;
+    // set<int> cur_candidates;
 
-    for (auto q : p) {
-        int x = q;
-        int h = treeH[x];
-        int prev_size = cur_candidates.size();
-        // 10 - for task3, 100 for task7
-        while (h > 1 && (cur_candidates.size() - prev_size) < 10) {
-            cur_candidates.insert(candidates[x].begin(), candidates[x].end());
-            x = tree[x];
-            --h;
-        }
-    }
+    // for (auto q : p) {
+    //     int x = q;
+    //     int h = treeH[x];
+    //     int prev_size = cur_candidates.size();
+    //     // 10 - for task3, 100 for task7
+    //     while (h > 1 && (cur_candidates.size() - prev_size) < 10) {
+    //         cur_candidates.insert(candidates[x].begin(), candidates[x].end());
+    //         x = tree[x];
+    //         --h;
+    //     }
+    // }
     // cerr << "Cand size " << cur_candidates.size() << endl;
 
-    // for (int i = 0; i < dis.size(); ++i) {
-    for (auto i : cur_candidates) {
+    for (int i = 0; i < dis.size(); ++i) {
+    // for (auto i : cur_candidates) {
         vi& d = dis[i];
 
-        int sum = 0;
+        long long sum = 0;
         for (auto q : p) {
             int mx = 0;
             for (auto di : d) {
@@ -78,7 +83,6 @@ int calc(vii& dis, vi& p) {
             sum += mx;
         }
         if (sum > msum) {
-            // cerr << sum << " " << i << endl;
             md = i;
             msum = sum;
         }
@@ -160,7 +164,7 @@ int main(void) {
     cerr << "HERR" << endl;
 
     for (int i = 0; i < Q; ++i) {
-        if (i % 100 == 0)
+        if (i % 10 == 0)
             cerr << "P: " << i << endl;
         cout << (calc(dis, pat[i]) + 1 ) << endl;
     }
