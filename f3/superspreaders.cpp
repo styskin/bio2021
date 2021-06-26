@@ -42,7 +42,7 @@ void task() {
     int ind = 0;
     double mx = 0;
 
-    for (int ii = 0; ii < 10000; ++ii) {
+    for (int ii = 0; ii < 5000; ++ii) {
         int i = edv[ii].second;
         // cerr << i << " with " << edv[ii].first << " i: " << ii << endl;
         vector<vector<double> >  prob(D+1, vector<double>(N, 0.));
