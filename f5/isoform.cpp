@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <set>
+#include <map>
 
 using namespace std;
 
@@ -11,6 +13,9 @@ typedef vector<pii> vii;
 int N, D, Q;
 vector<vii> isoform;
 
+
+map<int, int> cc;
+multimap<pii, int> cache;
 
 vii readI(const string& s) {
     vii answer;
@@ -77,17 +82,61 @@ int check(vii& a, vii& b, int d) {
 pii calc(vii& r) {
     int ind = -1;
     int count = 0;
-    // for (int i = 0; i < r.size(); ++i) {
-    //     cerr << r[i].first << "-" << r[i].second << endl;
-    // }
+    // need subset of candidates
+
+    int iter = 0;
+
+    int cnt = 0;
+
+    map<int, int> candidates;
+    for (int i = 0; i < r.size(); ++i) {
+        if (cc[(r[i].first + D) / 1000] < 30000 || cc[(r[i].first - D) / 1000] < 30000) {
+            ++cnt;
+        } else {
+            continue;
+        }
+        // r[i].first + d  -- should be between a&b
+        auto it = cache.lower_bound(pii(r[i].first + D, 0));
+        for (; it != cache.end(); --it) {
+            if ((it->first.first <= r[i].first + D) && (it->first.second >= r[i].second - D)) {
+                // cerr << "B "  << it->second << ": " << it->first.first << "-" << it->first.second << " && " <<  r[i].first << "-" << r[i].second << endl;
+                ++candidates[it->second];
+            }
+            if (r[i].first - D > it->first.second) {
+                // cerr << "B "  << it->second << ": " << it->first.first << "-" << it->first.second << " && " <<  r[i].first << "-" << r[i].second << endl;
+                break;
+            }
+            ++ iter;
+        }
+    }
+    set<int> finalCandidates;
+    for (auto c : candidates) {
+        if (c.second >= cnt - 1) {
+            finalCandidates.insert(c.first);
+        }
+    }
+    cerr << "Final candidates size: " << finalCandidates.size() << " iterated " << iter << endl;
 
     for (int i = 0; i < N; ++i) {
+    // for (auto i : finalCandidates) {
         // cerr << "Try " << i << endl;
         if (check(isoform[i], r, D)) {
             if (ind < 0) {
                 ind = i;
             } 
             ++count;
+
+            if (finalCandidates.find(i) == finalCandidates.end() || count == 1) {
+                if (count == 1) {
+                    cout << "C: " << i << endl;
+                } else {
+                    cout << "I: " << i << endl;
+                }
+                for(auto p : isoform[i]) {
+                    cout << "," << p.first << "-" << p.second;
+                }
+                cout << endl;
+            } 
         }
     }
     return pii(ind, count);
@@ -101,6 +150,38 @@ int main(void) {
         cin >> s;
         isoform.push_back(readI(s));
     }
+
+    for (int i = 0; i < isoform.size(); ++i) {
+        for (int j = 0; j < isoform[i].size(); ++j) {
+            ++cc[isoform[i][j].first / 1000];
+
+
+            // if (isoform[i][j].first > FILTER) {
+            //     cache.insert(pair<pii, int>(isoform[i][j], i));
+            // }
+        }
+    }
+    // for (auto m : cc) {
+    //     if (m.second > 10)
+    //         cerr << m.first << " = " << m.second << endl;
+    // }
+    // if (1) {
+    //     return -1;
+    // }
+    for (int i = 0; i < isoform.size(); ++i) {
+        for (int j = 0; j < isoform[i].size(); ++j) {
+            if (cc[isoform[i][j].first / 1000] < 30000) {
+                cache.insert(pair<pii, int>(isoform[i][j], i));
+                if ((isoform[i][j].first - D) / 1000 != isoform[i][j].first / 1000) {
+                    cache.insert(pair<pii, int>(isoform[i][j], i));
+                }
+                if ((isoform[i][j].first + D) / 1000 != isoform[i][j].first / 1000) {
+                    cache.insert(pair<pii, int>(isoform[i][j], i));
+                }
+            }
+        }
+    }
+    cerr << "Total cache size: " << cache.size() << endl;
     cin >> Q;
     for (int i = 0; i < Q; ++i) {
         if (i % 100 == 0) {
@@ -111,6 +192,7 @@ int main(void) {
         vii r = readI(s);
         pii answer = calc(r);
         cout << answer.first << " " << answer.second << endl;
+        cout.flush();
     }
     return 0;
 } 
