@@ -22,7 +22,6 @@ vii readI(const string& s) {
         size_t del = p.find('-');
         pr.first = stoi(p.substr(0, del));
         pr.second = stoi(p.substr(del + 1));
-        // cerr << pr.first << "-" << pr.second << endl;
         answer.push_back(pr);
     }
     {
@@ -31,7 +30,6 @@ vii readI(const string& s) {
         size_t del = p.find('-');
         pr.first = stoi(p.substr(0, del));
         pr.second = stoi(p.substr(del + 1));
-        // cerr << pr.first << "-" << pr.second << endl;
         answer.push_back(pr);
     }
     return answer;
@@ -56,9 +54,11 @@ int check(vii& a, vii& b, int d) {
             ++ia;
             ++ib;
         } else if (first && abs(b[ib].second - a[ia].second) <= d) {
+            if (b[ib].first < a[ia].first - d) {
+                return 0;
+            }
             ++ia;
             ++ib;
-            first = 0;
         } else if (last && abs(b[ib].first - a[ia].first) <= d && b[ib].second < a[ia].second) {
             ++ia;
             ++ib;
@@ -66,6 +66,7 @@ int check(vii& a, vii& b, int d) {
             // cerr << "NO" << endl;
             return 0;
         }
+        first = 0;
     }
     // cerr << ia << " < " << a.size() << " vs " << ib << " < " << b.size() << endl; 
 
