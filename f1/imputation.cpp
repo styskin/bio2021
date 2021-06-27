@@ -11,8 +11,7 @@ typedef vector<int> vi;
 typedef pair<int, int> pii;
 
 const int N_GRAM = 2;
-const int MASK = 50;
-
+const int MASK = 200;
 
 map<pii, vi> searchMap;
 
