@@ -34,7 +34,8 @@ char decode(int c) {
 void task() {
     int N, L;
     cin >> N >> L;
-    vector<string> genome(N);
+    vector<string> genome1(N);
+    vector<string> genome2(N);
     vector<int> des(N);
     int dcount = 0;
     for (int i = 0; i < N; ++i) {
@@ -45,22 +46,27 @@ void task() {
             ++dcount;
         }
         cin >> s;
-        genome[i] = s;
+        genome1[i] = s;
+        cin >> s;
+        genome2[i] = s;
     }
     // cout << "Des: " << dcount << endl;
 
     vector<int> mask(L);
     for (int l = 0; l < L; ++l) {
-        int stat[4][2];
-        memset(stat, 0, sizeof(int) * 4 * 2);
+        int stat[4*4][2];
+        memset(stat, 0, sizeof(int) * 4 * 4 * 2);
         for (int i = 0; i < N; ++i) {
-            ++stat[encode(genome[i][l])][ des[i] ];
+            int g1 = encode(genome1[i][l]);
+            int g2 = encode(genome2[i][l]);
+            int g = (g2 << 2) + g1;
+            ++stat[g][ des[i] ];
         }
         // cout << l << ": " << endl; 
 
         int mx = 0;
         int mxc = 0;
-        for (int i = 0; i < 4; ++i) {
+        for (int i = 0; i < 4 * 4; ++i) {
             if (stat[i][1] > mxc) {
                 mx = i;
                 mxc = stat[i][1];
@@ -73,25 +79,23 @@ void task() {
     sort(maskC.begin(), maskC.end());
 //    cout << maskC[maskC.size() - 1] << " " << L << endl;
 
-    int C = 10;
+    int C = 5;
     int a = 100000000, b = -1;
     for (int l = 0; l < L; ++l) {
-        cout << " " << mask[l];
-        if (mask[l] > maskC[maskC.size() - C]) {
+        if (mask[l] >= maskC[maskC.size() - C]) {
             a = min(a, l);
             b = max(b, l);
         }
     }
-    cout << endl;
-    for (int l = 0; l < L; ++l) {
-        cout << " " << mask[l];
-    }
-    cout << endl;
+    // for (int l = 0; l < L; ++l) {
+    //     cout << " " << mask[l];
+    // }
+    // cout << endl;
 
-    for (int l = 0; l < L; ++l) {
-        cout << " " << (mask[l] > maskC[maskC.size() - C]);
-    }
-    cout << endl;
+    // for (int l = 0; l < L; ++l) {
+    //     cout << " " << (mask[l] > maskC[maskC.size() - C]);
+    // }
+    // cout << endl;
 
     cout << a << " " << b << endl;
 }
